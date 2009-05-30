@@ -1,0 +1,29 @@
+<table cellspacing="0" cellpadding="0" border="0">
+  <tbody>
+    <tr>
+    	<td>
+    	
+    	</td>
+      <td>
+        <div class="logs">
+          <% @logs.each do |log| %>
+           <% if log.date == Date.today.strftime("%m-%d-%Y") %>
+             <%= erb(:log, :layout => false, :locals => {:log => log}) %>
+           <% end %>
+          <% end %>
+        </div>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <form action="/" method="post">
+          <textarea name="entry" rows="10" cols="80"></textarea>
+          <input type="submit" value="Log" />
+        </form>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+

@@ -1,0 +1,18 @@
+<table cellspacing="0" cellpadding="0" border="0">
+  <tbody>
+    <tr>
+    	<td>
+    	 
+    	</td>
+      <td>
+        <div class="logs">
+          <% @logs.each do |log| %>
+           <%= erb(:log, :layout => false, :locals => {:log => log}) %>
+          <% end %>
+        </div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
