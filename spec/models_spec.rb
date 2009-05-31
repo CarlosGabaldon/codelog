@@ -11,12 +11,17 @@ require 'models'
 describe Log do
   
   before do
+    @date = Date.today.strftime("%m-%d-%Y")
 		@log = Log.new do |l|
       l.entry = "Test log entry.."
-      l.date = Date.today.strftime("%m-%d-%Y")
+      l.date = @date
       l.created_at = DateTime.now
       l.save
     end
+	end
+	
+	it "should find log by date" do
+	  Log.find_by_date(@date).should_not == nil
 	end
   
   it "should allow linking between logs" do
@@ -26,11 +31,8 @@ describe Log do
       l.created_at = DateTime.now
       l.save
     end
-    puts "Log id is #{@log.id}"
     @log.link_with @related_log
-    puts "Related log id is #{@related_log.id}"
     @log.linked_log.should == @related_log.id
-    
   end
   
 end

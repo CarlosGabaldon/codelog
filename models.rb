@@ -13,12 +13,7 @@ end
 class Log < Sequel::Model
 
   class << self
-    def find_today
-      Log.find( :all, 
-        :conditions => ["created_at BETWEEN ? AND ?", Date.today, Date.today + 1 ], 
-        :order => "created_at ASC" )
-    end
-    
+
     def find_by_date(date)
       Log.filter(:date => date)
     end
