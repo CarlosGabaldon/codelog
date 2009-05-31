@@ -1,11 +1,17 @@
-require 'sequel'
 require 'date'
 
-DB = Sequel.sqlite('./db/codelog.db')
-
+unless DB.table_exists? :logs
+  DB.create_table :logs do
+    primary_key :id
+    text :entry
+    text :date
+    integer :linked_log
+    datetime :created_at
+  end
+end
 
 class Log < Sequel::Model
-  
+
   class << self
     def find_today
       Log.find( :all, 
@@ -25,6 +31,10 @@ class Log < Sequel::Model
       
     end
     
+  end
+  
+  def link_with(log)
+    self.update(:linked_log => log.id)
   end
   
 end

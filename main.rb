@@ -1,11 +1,12 @@
 require 'rubygems'
 require 'sinatra'
-require 'models'
+require 'sequel'
 
-
-before do
-  
+configure do
+	DB = Sequel.sqlite('./db/codelog.db')
 end
+
+require 'models'
 
 get '/' do
  @logs = Log.all
