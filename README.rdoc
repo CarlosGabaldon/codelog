@@ -1,0 +1,18 @@
+= Codelog - your code needs a blog
+
+  Copyright (c) 2009 Carlos Gabaldon <carlosgabaldon.com>, released under the MIT license
+ 
+  Public Clone URL:  	git://github.com/CarlosGabaldon/codelog.git
+ 
+  SQLite:     http://www.sqlite.org/
+  Sequel:     http://sequel.rubyforge.org/rdoc/index.html
+  Sinatra:    http://sinatrarb.com/
+  
+== Mantra
+  Codelog: Your code needs a blog
+  Notes from design meetings, coding questions & solutions, etc..
+
+  
+
+
+
