@@ -23,7 +23,6 @@ class Log < Sequel::Model
       DB['select distinct date from logs order by created_at DESC'].each do |row|
         dates << row[:date]
       end
-      
     end
     
   end
